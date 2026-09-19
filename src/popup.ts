@@ -18,15 +18,35 @@ interface MessageResponse {
   error?: string;
 }
 
+interface GistFile {
+  content: string;
+}
+
+interface GistRequest {
+  description: string;
+  public: boolean;
+  files: Record<string, GistFile>;
+}
+
+interface GistResponse {
+  html_url: string;
+  id: string;
+}
+
 // DOM Elements
 const extractYTMusicBtn = document.getElementById('extract-youtube-music') as HTMLButtonElement;
 const copyYTMusicBtn = document.getElementById('copy-youtube-music') as HTMLButtonElement;
+const pushYTMusicBtn = document.getElementById('push-youtube-music') as HTMLButtonElement;
 const ytMusicResult = document.getElementById('youtube-music-result') as HTMLTextAreaElement;
 const formatSelect = document.getElementById('format-select') as HTMLSelectElement;
 
 const extractSpotifyBtn = document.getElementById('extract-spotify') as HTMLButtonElement;
 const copySpotifyBtn = document.getElementById('copy-spotify') as HTMLButtonElement;
+const pushSpotifyBtn = document.getElementById('push-spotify') as HTMLButtonElement;
 const spotifyResult = document.getElementById('spotify-result') as HTMLTextAreaElement;
+
+const saveGistTokenBtn = document.getElementById('save-gist-token') as HTMLButtonElement;
+const gistTokenInput = document.getElementById('gist-token') as HTMLInputElement;
 
 const statusEl = document.getElementById('status') as HTMLDivElement;
 
@@ -46,6 +66,48 @@ const formatCookiesAsString = (cookies: Record<string, string>): string => {
   return Object.entries(cookies)
     .map(([name, value]) => `${name}=${value}`)
     .join('; ');
+};
+
+// Get GitHub token from storage
+const getGistToken = (): Promise<string | null> => {
+  return new Promise((resolve) => {
+    chrome.storage.sync.get(['github_token'], (result) => {
+      resolve(result.github_token || null);
+    });
+  });
+};
+
+// Save GitHub token to storage
+const saveGistToken = (token: string): Promise<void> => {
+  return new Promise((resolve) => {
+    chrome.storage.sync.set({ github_token: token }, () => {
+      resolve();
+    });
+  });
+};
+
+// Create a GitHub Gist
+const createGist = async (token: string, description: string, files: Record<string, GistFile>): Promise<GistResponse> => {
+  const response = await fetch('https://api.github.com/gists', {
+    method: 'POST',
+    headers: {
+      'Authorization': `token ${token}`,
+      'Accept': 'application/vnd.github.v3+json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      description,
+      public: false,
+      files,
+    }),
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message || 'Failed to create gist');
+  }
+
+  return response.json();
 };
 
 // Function to extract YouTube Music cookies
@@ -69,6 +131,7 @@ const extractYouTubeMusicCookies = () => {
           if (netscapeData.netscapeFormat) {
             ytMusicResult.value = netscapeData.netscapeFormat;
             copyYTMusicBtn.disabled = false;
+            pushYTMusicBtn.disabled = false;
             showStatus('YouTube Music cookies extracted in Netscape format!');
           } else {
             ytMusicResult.value = 'No YouTube Music cookies found';
@@ -83,6 +146,7 @@ const extractYouTubeMusicCookies = () => {
           if (cookieData.youtubeMusic && Object.keys(cookieData.youtubeMusic).length > 0) {
             ytMusicResult.value = formatCookiesAsString(cookieData.youtubeMusic);
             copyYTMusicBtn.disabled = false;
+            pushYTMusicBtn.disabled = false;
             showStatus('YouTube Music cookies extracted successfully!');
           } else {
             ytMusicResult.value = 'No YouTube Music cookies found';
@@ -115,6 +179,7 @@ const extractSpotifyCookies = () => {
         if (spotifySpDc) {
           spotifyResult.value = spotifySpDc;
           copySpotifyBtn.disabled = false;
+          pushSpotifyBtn.disabled = false;
           showStatus('Spotify cookies extracted successfully!');
         } else {
           spotifyResult.value = 'sp_dc cookie not found';
@@ -127,6 +192,80 @@ const extractSpotifyCookies = () => {
       showStatus(`Failed to extract Spotify cookies: ${response.error}`, true);
     }
   });
+};
+
+// Push YouTube Music cookies to GitHub Gist
+const pushYTMusicToGist = async () => {
+  const token = await getGistToken();
+  if (!token) {
+    showStatus('Please save your GitHub token first', true);
+    return;
+  }
+
+  const content = ytMusicResult.value;
+  if (!content || content === 'No YouTube Music cookies found') {
+    showStatus('No cookies to push', true);
+    return;
+  }
+
+  pushYTMusicBtn.disabled = true;
+  pushYTMusicBtn.textContent = 'Pushing...';
+
+  try {
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const files = {
+      [`youtube-music-cookies-${timestamp}.txt`]: { content },
+    };
+    
+    const gist = await createGist(token, `YouTube Music Cookies - ${new Date().toLocaleString()}`, files);
+    showStatus(`Gist created: ${gist.html_url}`);
+    
+    // Copy gist URL to clipboard
+    await navigator.clipboard.writeText(gist.html_url);
+    showStatus('Gist URL copied to clipboard!');
+  } catch (error) {
+    showStatus(`Failed to push to Gist: ${(error as Error).message}`, true);
+  } finally {
+    pushYTMusicBtn.disabled = false;
+    pushYTMusicBtn.textContent = 'Push to Gist';
+  }
+};
+
+// Push Spotify cookies to GitHub Gist
+const pushSpotifyToGist = async () => {
+  const token = await getGistToken();
+  if (!token) {
+    showStatus('Please save your GitHub token first', true);
+    return;
+  }
+
+  const content = spotifyResult.value;
+  if (!content || content === 'sp_dc cookie not found') {
+    showStatus('No Spotify cookie to push', true);
+    return;
+  }
+
+  pushSpotifyBtn.disabled = true;
+  pushSpotifyBtn.textContent = 'Pushing...';
+
+  try {
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const files = {
+      [`spotify-sp_dc-${timestamp}.txt`]: { content },
+    };
+    
+    const gist = await createGist(token, `Spotify sp_dc - ${new Date().toLocaleString()}`, files);
+    showStatus(`Gist created: ${gist.html_url}`);
+    
+    // Copy gist URL to clipboard
+    await navigator.clipboard.writeText(gist.html_url);
+    showStatus('Gist URL copied to clipboard!');
+  } catch (error) {
+    showStatus(`Failed to push to Gist: ${(error as Error).message}`, true);
+  } finally {
+    pushSpotifyBtn.disabled = false;
+    pushSpotifyBtn.textContent = 'Push to Gist';
+  }
 };
 
 // Copy text to clipboard function
@@ -143,13 +282,37 @@ const copyToClipboard = async (text: string): Promise<boolean> => {
 // Event listeners
 extractYTMusicBtn.addEventListener('click', extractYouTubeMusicCookies);
 extractSpotifyBtn.addEventListener('click', extractSpotifyCookies);
+pushYTMusicBtn.addEventListener('click', pushYTMusicToGist);
+pushSpotifyBtn.addEventListener('click', pushSpotifyToGist);
 
 // Clear result when format changes
 formatSelect.addEventListener('change', () => {
   ytMusicResult.value = '';
   copyYTMusicBtn.disabled = true;
+  pushYTMusicBtn.disabled = true;
 });
 
+// Save GitHub token
+saveGistTokenBtn.addEventListener('click', async () => {
+  const token = gistTokenInput.value.trim();
+  if (!token) {
+    showStatus('Please enter a GitHub token', true);
+    return;
+  }
+  
+  await saveGistToken(token);
+  showStatus('GitHub token saved!');
+  gistTokenInput.value = '';
+});
+
+// Load saved token on startup
+getGistToken().then((token) => {
+  if (token) {
+    gistTokenInput.placeholder = 'Token saved (hidden)';
+  }
+});
+
+// Copy text to clipboard
 copyYTMusicBtn.addEventListener('click', async () => {
   const success = await copyToClipboard(ytMusicResult.value);
   showStatus(success ? 'YouTube Music cookies copied!' : 'Failed to copy', !success);
@@ -167,4 +330,6 @@ document.addEventListener('DOMContentLoaded', () => {
   spotifyResult.value = '';
   copyYTMusicBtn.disabled = true;
   copySpotifyBtn.disabled = true;
-}); 
+  pushYTMusicBtn.disabled = true;
+  pushSpotifyBtn.disabled = true;
+});

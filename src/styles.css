@@ -14,8 +14,24 @@ body {
 h1 {
   font-size: 18px;
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   color: #333;
+}
+
+.guide-link {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.guide-link a {
+  color: #4285f4;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.guide-link a:hover {
+  text-decoration: underline;
 }
 
 h2 {
@@ -60,10 +76,54 @@ h2 {
   box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
 }
 
+/* Gist Section */
+.gist-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.format-selector input {
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  flex: 1;
+}
+
+.format-selector input:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+#push-youtube-music,
+#push-spotify {
+  background-color: #6f42c1;
+  color: white;
+}
+
+#push-youtube-music:disabled,
+#push-spotify:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#save-gist-token {
+  background-color: #28a745;
+  color: white;
+}
+
+#save-gist-token:hover {
+  background-color: #218838;
+}
+
 .buttons {
   display: flex;
   gap: 8px;
   margin-bottom: 8px;
+  flex-wrap: wrap;
 }
 
 button {

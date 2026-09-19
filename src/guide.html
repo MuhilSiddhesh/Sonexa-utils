@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guide: How to Log in to YouTube and Spotify on Sonexa Desktop</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .guide-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .guide-header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #e0e0e0;
+    }
+    .guide-header h1 {
+      color: #1a1a2e;
+      margin-bottom: 10px;
+    }
+    .guide-header .meta {
+      color: #666;
+      font-size: 14px;
+    }
+    .guide-section {
+      margin-bottom: 30px;
+    }
+    .guide-section h2 {
+      color: #2d79f3;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+    }
+    .guide-section h3 {
+      color: #1a1a2e;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .guide-section p {
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .guide-section ul, .guide-section ol {
+      margin-bottom: 15px;
+      padding-left: 25px;
+    }
+    .guide-section li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .prerequisites {
+      background: #f5f5ff;
+      border: 1px solid #d0d0ff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .prerequisites h2 {
+      color: #2d79f3;
+      margin-top: 0;
+      border-bottom: none;
+    }
+    .step {
+      background: #fafafa;
+      border-left: 4px solid #2d79f3;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 0 8px 8px 0;
+    }
+    .step-number {
+      background: #2d79f3;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .step-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a1a2e;
+      display: inline;
+    }
+    .note {
+      background: #fff8e1;
+      border: 1px solid #ffecb3;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .note strong {
+      color: #f57c00;
+    }
+    .warning {
+      background: #ffebee;
+      border: 1px solid #ffcdd2;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .warning strong {
+      color: #c62828;
+    }
+    .btn-back {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: #2d79f3;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .btn-back:hover {
+      background: #1a5fc7;
+    }
+    .download-link {
+      display: inline-block;
+      background: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 10px 0;
+    }
+    .download-link:hover {
+      background: #43a047;
+    }
+    .ad-banner {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .ad-banner a {
+      color: #ffeb3b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container guide-container">
+    <header class="guide-header">
+      <h1>Guide: How to Log in to YouTube and Spotify on Sonexa Desktop</h1>
+      <div class="meta">
+        <span>October 27, 2025</span> | <span>tutorials</span>
+      </div>
+    </header>
+
+    <div class="ad-banner">
+      <p><strong>Advertisement</strong></p>
+      <p>DigitalOcean Referral Badge</p>
+    </div>
+
+    <article>
+      <p>Welcome to Sonexa! To fully enjoy your personal music library, favorite playlists, and recommendations from YouTube and Spotify directly on the desktop app, you need to log in. This article will guide you on how to use the Sonexa Utils Chrome extension to sync your login information safely and quickly.</p>
+
+      <div class="prerequisites">
+        <h2>Prerequisites</h2>
+        <p>Before you begin, make sure you have:</p>
+        <ul>
+          <li><strong>Sonexa Desktop App</strong> — <a href="https://github.com/maxrave-dev/SimpMusic/releases" class="download-link" target="_blank">Download here</a></li>
+          <li><strong>Google Chrome browser</strong> (or any other Chromium-based browser like Edge, Brave, Vivaldi)</li>
+          <li><strong>Sonexa Utils extension</strong> — <a href="https://github.com/MuhilSiddhesh/Sonexa-utils" target="_blank">GitHub Repository</a>: A Chrome extension that extracts cookies from YouTube Music and the <code>sp_dc</code> parameter from Spotify for the Sonexa client</li>
+        </ul>
+      </div>
+
+      <div class="guide-section">
+        <h2>Detailed Steps</h2>
+
+        <div class="step">
+          <span class="step-number">1</span>
+          <span class="step-title">Install the "Sonexa Utils" extension</span>
+          <div style="margin-top: 10px;">
+            <p>Follow the installation guide here: <a href="https://github.com/MuhilSiddhesh/Sonexa-utils/blob/dev/README.md" target="_blank">Sonexa Utils README</a></p>
+            <ol>
+              <li>Download the latest release zip from <a href="https://github.com/MuhilSiddhesh/Sonexa-utils/releases" target="_blank">GitHub Releases</a></li>
+              <li>Extract the zip file to a folder</li>
+              <li>Open Chrome and go to <code>chrome://extensions</code></li>
+              <li>Enable "Developer mode" in the top right</li>
+              <li>Click "Load unpacked" and select the extracted folder</li>
+              <li>The extension icon should appear in your Chrome toolbar</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-number">2</span>
+          <span class="step-title">Log in to your accounts in the browser</span>
+          <div style="margin-top: 10px;">
+            <p>Sonexa Utils reads the login information from your browser's session, so you need to be logged in to both services — YouTube Music and Spotify.</p>
+            <ul>
+              <li>Go to <a href="https://music.youtube.com" target="_blank">music.youtube.com</a> and sign in with your Google account</li>
+              <li>Go to <a href="https://open.spotify.com" target="_blank">open.spotify.com</a> and sign in with your Spotify account</li>
+            </ul>
+            <div class="note">
+              <strong>Note:</strong> Make sure you're successfully logged in and can access your personal content (like your playlists, liked songs, and recommendations) on both websites before proceeding.
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-number">3</span>
+          <span class="step-title">Get the login data from the extension and paste it into the app</span>
+          <div style="margin-top: 10px;">
+            <h3>For YouTube Music:</h3>
+            <ol>
+              <li>Open the Sonexa desktop app first</li>
+              <li>Go to <strong>Settings → Log in to YouTube</strong></li>
+              <li>Click the <strong>dev button</strong> in the top-right corner (if available)</li>
+              <li>Open the Sonexa Utils extension (click the extension icon in Chrome toolbar)</li>
+              <li>Click <strong>Extract Cookies</strong> — do this for <strong>both String and Netscape format</strong></li>
+              <li>Back in the app, paste the extracted cookies in the appropriate fields</li>
+              <li>Done!</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-number">4</span>
+          <span class="step-title">Repeat the same steps for Spotify</span>
+          <div style="margin-top: 10px;">
+            <ol>
+              <li>In the Sonexa desktop app, go to <strong>Settings → Log in to Spotify</strong></li>
+              <li>Open the Sonexa Utils extension</li>
+              <li>Click <strong>Extract Cookie</strong> for Spotify (this extracts the <code>sp_dc</code> parameter)</li>
+              <li>Copy the extracted <code>sp_dc</code> value</li>
+              <li>Paste it into the Spotify login field in the app</li>
+              <li>Done!</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="warning">
+          <strong>Important:</strong> The cookies and <code>sp_dc</code> parameter contain sensitive authentication data. Never share them with anyone. The Sonexa Utils extension only extracts this data locally in your browser — it never sends your data to any external server.
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <h2>Conclusion</h2>
+        <p>With just a few simple steps, you've unlocked the full power of the Sonexa desktop app. Using the Sonexa Utils extension keeps this process secure — you never enter your passwords directly into the app.</p>
+        <p>Enjoy your music! If you run into any issues, don't hesitate to contact our support team or create an issue on the <a href="https://github.com/MuhilSiddhesh/Sonexa-utils/issues" target="_blank">Sonexa Utils GitHub</a>.</p>
+      </div>
+
+      <a href="popup.html" class="btn-back">← Back to Extension</a>
+    </article>
+  </div>
+</body>
+</html>

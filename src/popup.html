@@ -9,6 +9,7 @@
 <body>
   <div class="container">
     <h1>Sonexa and Vedra Utils</h1>
+    <p class="guide-link"><a href="guide.html" target="_blank">📖 View Setup Guide</a></p>
     
     <div class="service-section">
       <h2>YouTube Music</h2>
@@ -22,6 +23,7 @@
       <div class="buttons">
         <button id="extract-youtube-music">Extract Cookies</button>
         <button id="copy-youtube-music" disabled>Copy to Clipboard</button>
+        <button id="push-youtube-music" disabled>Push to Gist</button>
       </div>
       <div class="result">
         <textarea id="youtube-music-result" readonly></textarea>
@@ -33,9 +35,21 @@
       <div class="buttons">
         <button id="extract-spotify">Extract Cookie</button>
         <button id="copy-spotify" disabled>Copy to Clipboard</button>
+        <button id="push-spotify" disabled>Push to Gist</button>
       </div>
       <div class="result">
         <textarea id="spotify-result" readonly></textarea>
+      </div>
+    </div>
+    
+    <div class="service-section gist-section">
+      <h2>GitHub Gist</h2>
+      <div class="format-selector">
+        <label for="gist-token">GitHub Token:</label>
+        <input type="password" id="gist-token" placeholder="Enter GitHub Personal Access Token">
+      </div>
+      <div class="buttons">
+        <button id="save-gist-token">Save Token</button>
       </div>
     </div>
     
