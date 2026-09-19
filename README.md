@@ -48,37 +48,3 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## Support & Donations 
-#### Special thanks to all supporter ❤️    
-<div align="left"> 
-<a href="https://sonexa-and-vedra.org/"><img alt="Visit the website" height="50" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/website_vector.svg"></a> &nbsp;        
-<a href="https://discord.gg/Rq5tWVM9Hg"><img alt="Discord Server" height="50" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-plural_vector.svg"></a> &nbsp;        
-<br> <a href="https://www.buymeacoffee.com/sonexa-and-vedra"><img alt="Buy me a Coffee" height="50" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/donate/buymeacoffee-singular_vector.svg"></a> &nbsp;        
-<a href="https://liberapay.com/sonexa-and-vedra/"><img alt="liberapay" height="50"        
-src="https://raw.githubusercontent.com/liberapay/liberapay.com/master/www/assets/liberapay/logo-v2_black-on-yellow.svg"></a> 
-</div>
-
-### MOMO or Vietnamese banking    
-<p float="left">        
-<img src="https://github.com/sonexa-and-vedra/sonexa-and-vedra/blob/dev/asset/52770992.jpg?raw=true" width="300">
-</p>
-
-## Sonexa and Vedra is sponsored by:
-<a href="https://www.digitalocean.com/?refcode=d7f6eedfb9a9&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" width="300" alt="DigitalOcean Referral Badge" /></a>
-<br>
-<a href="https://crowdin.com">
-<img src="https://support.crowdin.com/assets/logos/plate/png/crowdin-logo-with-plate.png" width="300"/>
-</a>
-<br>
-<a href="https://sentry.io">
-<img src="https://github.com/sonexa-and-vedra/sonexa-and-vedra/blob/dev/asset/sentry.svg?raw=true" width="300"/>
-</a>
-<br>
-
-Get free $200 credit over 60 days on DigitalOcean: [GET NOW](https://www.digitalocean.com/?refcode=d7f6eedfb9a9&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
-
-Crowdin and Sentry both have a free enterprise plan for Open-source projects. Follow the URLs:
-- [Open Source License Request Form | Crowdin](https://crowdin.com/page/open-source-project-setup-request)
-- [Sentry for Open Source | Sentry](https://sentry.io/for/open-source/)
-
-*This project is a part of Sonexa and Vedra.org Open-source project by me [sonexa-and-vedra](https://github.com/sonexa-and-vedra)*
