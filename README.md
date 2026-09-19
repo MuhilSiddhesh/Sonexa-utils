@@ -1,277 +1,84 @@
-# 🎵 Sonexa Utils
+# Sonexa and Vedra Utils
 
-> **Connect your music. Extend your Sonexa experience.**
+A Chrome extension that extracts cookies from YouTube Music and specifically the `sp_dc` parameter from Spotify for Sonexa and Vedra client
 
-**Sonexa Utils** is a browser extension developed by **VEDRA LLC** for the **Sonexa** music ecosystem. It provides browser-side utilities that help users connect supported music services such as **YouTube Music** and **Spotify** with Sonexa.
+## Features
 
-🚀 **Fast • Simple • Secure • Open Source**
+- Extract all cookies from YouTube Music
+- Extract only the `sp_dc` cookie from Spotify
+- Copy extracted cookies to clipboard with a single click
 
----
+## Installation
 
-## ✨ Features
+1. Download zip file from Release and extract it
+2. Open Chrome and go to `chrome://extensions`
+3. Enable "Developer mode" in the top right
+4. Click "Load unpacked" and select the extracted folder from this project
 
-🎵 **YouTube Music Integration**
-Connect supported YouTube Music functionality with Sonexa.
+## Usage
 
-🟢 **Spotify Integration**
-Connect supported Spotify functionality with Sonexa.
+1. Click on the extension icon in your Chrome toolbar
+2. Click "Extract Cookies" for YouTube Music or Spotify
+3. Once cookies are displayed, use the "Copy to Clipboard" button to copy them
+4. You can now use these cookies in your applications
 
-🔗 **Sonexa Connection**
-Transfer supported account/session information to Sonexa through the appropriate integration flow.
+## License
 
-⚡ **One-Click Workflow**
-Designed to keep the connection process simple and quick.
+```md
+MIT License
 
-🌐 **Browser Support**
-Built using standard WebExtension technologies for modern browsers.
+Copyright (c) 2025 Nguyễn Đức Tuấn Minh
 
-🦊 **Firefox Support**
-Compatible with Firefox through the WebExtension architecture.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-💻 **Chrome Support**
-Designed to work with Chromium-based browsers.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
----
-
-# 🛠️ How It Works
-
-The basic workflow is:
-
-```text
-🌐 Browser
-     │
-     ▼
-🎵 Sonexa Utils
-     │
-     ├── YouTube Music
-     │
-     └── Spotify
-     │
-     ▼
-🔐 Authorized Connection
-     │
-     ▼
-🎧 Sonexa
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
 
-### 1️⃣ Install Sonexa Utils
-
-Download the latest release from the project's **Releases** section.
-
-Extract the downloaded ZIP file.
-
----
-
-### 2️⃣ Open Your Browser Extensions
-
-For Chrome/Chromium:
-
-```text
-chrome://extensions
-```
-
-For Firefox:
-
-```text
-about:debugging
-```
-
-Enable the appropriate developer/temporary-extension option.
-
----
-
-### 3️⃣ Load Sonexa Utils
-
-For Chrome:
-
-1. Enable **Developer mode**.
-2. Select **Load unpacked**.
-3. Select the extracted Sonexa Utils folder.
-4. Pin the extension to your toolbar. 📌
-
-For Firefox:
-
-1. Open **about:debugging**.
-2. Select **This Firefox**.
-3. Choose **Load Temporary Add-on**.
-4. Select the extension manifest. 🦊
-
----
-
-### 4️⃣ Open Sonexa Utils
-
-Click the **Sonexa Utils** extension icon.
-
-You'll see the available music-service integrations:
-
-```text
-┌───────────────────────────┐
-│       🎧 SONEXA UTILS     │
-│                           │
-│  🎵 YouTube Music         │
-│  🟢 Spotify               │
-│                           │
-│  🔗 Connect to Sonexa     │
-└───────────────────────────┘
-```
-
----
-
-### 5️⃣ Connect Your Music Service
-
-Open the supported music service in your browser and sign in normally.
-
-Then return to **Sonexa Utils** and select the appropriate integration.
-
-🔐 Sonexa Utils should use supported authorization/integration mechanisms rather than asking users to manually expose or share their account passwords.
-
----
-
-### 6️⃣ Connect With Sonexa
-
-After the authorization process is completed:
-
-```text
-🎵 Music Service
-       ↓
-🔐 Authorized Connection
-       ↓
-🧩 Sonexa Utils
-       ↓
-🎧 Sonexa
-```
-
-Sonexa can then use the authorized connection for the functionality supported by the integration.
-
----
-
-# 🔒 Security
-
-Your music accounts are important.
-
-Sonexa Utils should:
-
-* 🔐 Never request your music-service password
-* 🚫 Never display passwords
-* 🛡️ Minimize access to browser data
-* 📦 Request only the permissions required for its functionality
-* 🔗 Use authorized connection methods where available
-* 🧹 Avoid unnecessary storage of authentication information
-
-**Never share authentication tokens, session credentials, or exported browser data with other people.**
-
----
-
-# 🏗️ Technology
-
-Sonexa Utils is built with modern WebExtension technologies.
-
-* TypeScript
-* JavaScript
-* HTML
-* CSS
-* WebExtension APIs
-* Webpack
-* Chrome Extensions API
-* Firefox WebExtensions API
-
----
-
-# 🦊 Browser Compatibility
-
-| Browser           | Support |
-| ----------------- | ------- |
-| 🌐 Google Chrome  | ✅       |
-| 🔵 Chromium       | ✅       |
-| 🦊 Firefox        | ✅       |
-| 🟦 Microsoft Edge | ✅       |
-
-Compatibility may vary depending on the integration and browser API support.
-
----
-
-# 📁 Project Structure
-
-```text
-sonexa-utils/
-│
-├── src/
-│   ├── background/
-│   ├── content/
-│   ├── popup/
-│   └── utils/
-│
-├── public/
-│   └── icons/
-│
-├── package.json
-├── tsconfig.json
-├── webpack.config.js
-├── README.md
-└── LICENSE
-```
-
----
-
-# 🚀 Development
-
-Clone the repository:
-
-```bash
-git clone YOUR_REPOSITORY_URL
-cd sonexa-utils
-```
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Build the extension:
-
-```bash
-npm run build
-```
-
-The generated extension can then be loaded into a supported browser using its developer extension tools.
-
----
-
-# 🏢 About VEDRA LLC
-
-**Sonexa Utils** is part of the **Sonexa** ecosystem developed by **VEDRA LLC**.
-
-🎧 **Sonexa**
-*Listen Beyond Limits.*
-
-🏢 **VEDRA LLC**
-*Building the next generation of digital experiences.*
-
----
-
-# 📜 License
-
-This project is released under the **MIT License**.
-
-See [`LICENSE`](LICENSE) for the complete license text.
-
----
-
-## ❤️ Sonexa Ecosystem
-
-```text
-🎧 SONEXA
-     │
-     ├── 📱 Sonexa App
-     ├── 🌐 Sonexa Web
-     ├── 🧩 Sonexa Utils
-     └── 🔌 Music Integrations
-             │
-             ├── 🎵 YouTube Music
-             └── 🟢 Spotify
-```
-
-**Built with ❤️ by VEDRA LLC.**
-
-> 🎶 **Your music. Your ecosystem. Sonexa.**
+## Support & Donations 
+#### Special thanks to all supporter ❤️    
+<div align="left"> 
+<a href="https://sonexa-and-vedra.org/"><img alt="Visit the website" height="50" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/website_vector.svg"></a> &nbsp;        
+<a href="https://discord.gg/Rq5tWVM9Hg"><img alt="Discord Server" height="50" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-plural_vector.svg"></a> &nbsp;        
+<br> <a href="https://www.buymeacoffee.com/sonexa-and-vedra"><img alt="Buy me a Coffee" height="50" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/donate/buymeacoffee-singular_vector.svg"></a> &nbsp;        
+<a href="https://liberapay.com/sonexa-and-vedra/"><img alt="liberapay" height="50"        
+src="https://raw.githubusercontent.com/liberapay/liberapay.com/master/www/assets/liberapay/logo-v2_black-on-yellow.svg"></a> 
+</div>
+
+### MOMO or Vietnamese banking    
+<p float="left">        
+<img src="https://github.com/sonexa-and-vedra/sonexa-and-vedra/blob/dev/asset/52770992.jpg?raw=true" width="300">
+</p>
+
+## Sonexa and Vedra is sponsored by:
+<a href="https://www.digitalocean.com/?refcode=d7f6eedfb9a9&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" width="300" alt="DigitalOcean Referral Badge" /></a>
+<br>
+<a href="https://crowdin.com">
+<img src="https://support.crowdin.com/assets/logos/plate/png/crowdin-logo-with-plate.png" width="300"/>
+</a>
+<br>
+<a href="https://sentry.io">
+<img src="https://github.com/sonexa-and-vedra/sonexa-and-vedra/blob/dev/asset/sentry.svg?raw=true" width="300"/>
+</a>
+<br>
+
+Get free $200 credit over 60 days on DigitalOcean: [GET NOW](https://www.digitalocean.com/?refcode=d7f6eedfb9a9&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
+
+Crowdin and Sentry both have a free enterprise plan for Open-source projects. Follow the URLs:
+- [Open Source License Request Form | Crowdin](https://crowdin.com/page/open-source-project-setup-request)
+- [Sentry for Open Source | Sentry](https://sentry.io/for/open-source/)
+
+*This project is a part of Sonexa and Vedra.org Open-source project by me [sonexa-and-vedra](https://github.com/sonexa-and-vedra)*
