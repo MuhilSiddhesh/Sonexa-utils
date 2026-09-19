@@ -4,9 +4,11 @@ A Chrome extension that extracts cookies from YouTube Music and specifically the
 
 ## Features
 
-- Extract all cookies from YouTube Music
+- Extract all cookies from YouTube Music (String or Netscape format)
 - Extract only the `sp_dc` cookie from Spotify
 - Copy extracted cookies to clipboard with a single click
+- **NEW:** Push cookies to GitHub Gist for easy backup/sharing
+- **NEW:** Built-in setup guide for Sonexa Desktop login
 
 ## Installation
 
@@ -20,7 +22,18 @@ A Chrome extension that extracts cookies from YouTube Music and specifically the
 1. Click on the extension icon in your Chrome toolbar
 2. Click "Extract Cookies" for YouTube Music or Spotify
 3. Once cookies are displayed, use the "Copy to Clipboard" button to copy them
-4. You can now use these cookies in your applications
+4. **Optional:** Enter your GitHub Personal Access Token and click "Save Token", then use "Push to Gist" to create a private GitHub Gist with your cookies
+5. Click "📖 View Setup Guide" for detailed instructions on logging into Sonexa Desktop
+
+## Setup Guide
+
+For detailed instructions on how to log in to YouTube and Spotify on Sonexa Desktop using the Sonexa Utils Extension, see the [Setup Guide](https://github.com/MuhilSiddhesh/Sonexa-utils/blob/dev/src/guide.html) or click the "📖 View Setup Guide" link in the extension.
+
+### Quick Steps:
+1. **Install Sonexa Utils extension** from [GitHub Releases](https://github.com/MuhilSiddhesh/Sonexa-utils/releases)
+2. **Log in to YouTube Music** (music.youtube.com) and **Spotify** (open.spotify.com) in your browser
+3. **Open Sonexa Desktop App** → Settings → Log in to YouTube/Spotify
+4. **Extract cookies** using the extension and paste them into the app
 
 ## License
 
